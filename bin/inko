@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+# encoding: utf-8
+
+def show_usage_and_exit
+    puts <<-EOS
+USAGE:
+    inko [-d | --daemon | -h | --help]
+
+DESCRIPTION:
+    read-only? no, hear-only twitter-client for MacOS X using say command.
+
+    -d,--daemon     Run in deamon-mode. If you want to quit this app, simply kill this app's process.
+
+    --help          show this usage.
+    EOS
+    exit
+end
+
+case ARGV.first
+when '-h', '--help'
+    ARGV.shift
+    show_usage_and_exit
+when '-d', '--daemon'
+    ARGV.shift
+    puts <<-EOS.gsub /^\s+/,''
+        `inko` runs in background.
+        If you want to quit this app, kill process simply.
+    EOS
+    Process.daemon true,true
+end
+
+show_usage_and_exit unless ARGV.empty?
+
+require 'inko'
+begin
+    Inko::run 
+rescue Interrupt
+    puts "Inko is interrupted."
+end
+
