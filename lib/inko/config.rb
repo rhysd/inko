@@ -5,7 +5,7 @@ require 'yaml'
 module Inko
     module Config
         # file name for credential information
-        ConfigFileName = File.expand_path('~') + '/.inkorc'
+        ConfigFileName = File.expand_path('~') + '/.inkorc.yml'
 
         # if file is not found
         unless File.exist? ConfigFileName
