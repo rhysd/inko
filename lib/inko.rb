@@ -39,7 +39,7 @@ module Inko extend self
                 # puts "#{status.user.screen_name}: "
                 # puts status.text
                 `say -v #{Config::VoiceActor} #{status.user.screen_name.gsub(/_/, '. ').gsub(/([a-zA-Z]+|[0-9]+)/)do $1 + ' ' end} さんのツイート}`
-                `say -v #{Config::VoiceActor} #{status.text}`
+                `say -v #{Config::VoiceActor} #{status.text.split(/\n/).join " "}`
             end
         end
     end
