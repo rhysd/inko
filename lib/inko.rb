@@ -15,6 +15,8 @@ module Inko extend self
     # _,!
     # cf http://d.hatena.ne.jp/nacookan/20081220/1229745342
     def pronunciationize status
+        status.user.screen_name = status.user.screen_name.gsub(/_/, ' ').gsub(/([a-zA-Z]+|[0-9]+)/){$1 + ' '}.gsub(/@/,'@. ') 
+        status.text = status.text.split(/\n/).join(" ")
         status
     end
 
@@ -36,8 +38,8 @@ module Inko extend self
                 status = pronunciationize status
                 # puts "#{status.user.screen_name}: "
                 # puts status.text
-                `say -v #{Config::VoiceActor} #{status.user.screen_name.gsub(/_/, '. ').gsub(/([a-zA-Z]+|[0-9]+)/)do $1 + ' ' end} さんのツイート}`
-                `say -v #{Config::VoiceActor} #{status.text.split(/\n/).join " "}`
+                `say -v #{Config::VoiceActor} #{status.user.screen_name} さんのツイート}`
+                `say -v #{Config::VoiceActor} #{status.text}`
             end
         end
     end
