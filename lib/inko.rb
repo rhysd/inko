@@ -31,9 +31,7 @@ module Inko extend self
             raise e
         end
 
-        client = UserStream::client
-
-        client.user do |status|
+        UserStream::client.user do |status|
             unless filter? status
                 status = pronunciationize status
                 # puts "#{status.user.screen_name}: "
