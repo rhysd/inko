@@ -4,6 +4,7 @@ require "inko/version"
 require 'inko/config'
 
 require 'user_stream'
+require 'shellwords'
 
 module Inko extend self
 
@@ -16,7 +17,7 @@ module Inko extend self
     # cf http://d.hatena.ne.jp/nacookan/20081220/1229745342
     def pronunciationize status
         status.user.screen_name = status.user.screen_name.gsub(/_/, ' ').gsub(/([a-zA-Z]+|[0-9]+)/){$1 + ' '}.gsub(/@/,'@. ') 
-        status.text = status.text.split(/\n/).join(" ")
+        status.text = Shellwords::escape status.text.split(/\n/).join(" ")
         status
     end
 
