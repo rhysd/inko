@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 def show_usage_and_exit
-    puts <<-EOS
+  puts <<-EOS
 USAGE:
     inko [-d | --daemon | -h | --help]
 
@@ -12,29 +12,29 @@ DESCRIPTION:
     -d,--daemon     Run in deamon-mode. If you want to quit this app, simply kill this app's process.
 
     --help          show this usage.
-    EOS
-    exit
+  EOS
+  exit
 end
 
 case ARGV.first
 when '-h', '--help'
-    ARGV.shift
-    show_usage_and_exit
+  ARGV.shift
+  show_usage_and_exit
 when '-d', '--daemon'
-    ARGV.shift
-    puts <<-EOS.gsub /^\s+/,''
+  ARGV.shift
+  puts <<-EOS.gsub /^\s+/,''
         `inko` runs in background.
         If you want to quit this app, kill process simply.
-    EOS
-    Process.daemon true,true
+  EOS
+  Process.daemon true,true
 end
 
 show_usage_and_exit unless ARGV.empty?
 
 require 'inko'
 begin
-    Inko::run 
+  Inko::run 
 rescue Interrupt
-    puts "Inko is interrupted."
+  puts "Inko is interrupted."
 end
 
