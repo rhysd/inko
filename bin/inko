@@ -1,6 +1,13 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
 
+# check `say` command
+unless File.executable? '/usr/bin/say'
+  STDERR.puts "`say` command is not found!"
+  STDERR.puts "This gem is for MacOS X only!"
+  exit
+end
+
 def show_usage_and_exit
   puts <<-EOS
 USAGE:
@@ -16,6 +23,7 @@ DESCRIPTION:
   exit
 end
 
+# argument check
 case ARGV.first
 when '-h', '--help'
   ARGV.shift
@@ -31,6 +39,7 @@ end
 
 show_usage_and_exit unless ARGV.empty?
 
+# main app
 require 'inko'
 begin
   Inko::run 
