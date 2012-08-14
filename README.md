@@ -1,5 +1,19 @@
 # Inko（インコ）
 
+　　　　　γ'"´｀"''ヽ  
+　　 　 　/ 　 ●　　ｌ  
+　　　　/⌒)　　Oo ミ  
+　　　　ヽｌ'l　 wwWW  
+　　　　　 ﾉ　　　　　ヽ  
+　　　　　ｌ　　,---　　ヽ  
+　　　　　ｌ　　ヽ)ヽヽヾヽ  
+　　　　　ヽ　　　ヽヽヾヽヽ  
+　　　　　　ヽ　　　ヽヾヽヽヽ  
+　　　　　　　ヽ　　　ヽヽヾヽヽ  
+　　　　　　　　ヽ　　　ヽヽヽ　三三三三三∑  
+　　　　　　　　　丶､＿ヽヾヽ  
+　　　　　　　　　　((((　))))
+
 Inko is Twitter-call-off client for MacOS X.
 Inko means parakeet in Japanese.
 
