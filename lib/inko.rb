@@ -22,8 +22,8 @@ module Inko extend self
 
     status.text = Shellwords::escape( status.text.split(/\n/).join(" ")
                                                  .gsub(/！/,'!')
-                                                 .gsub(/ｗ+/, ' 笑い ')
                                                  .gsub(/http:\/\/[^\s]+/, ' URL 略. ')
+                                                 .gsub(/[ｗw]{4,}/, ' 笑い ')
                                                  .gsub(/#/, ' sharp ')
                                     )
     status
