@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
 
+exit if __FILE__ != $0
+
 # check `say` command
 unless File.executable? '/usr/bin/say'
   STDERR.puts "`say` command is not found!"
