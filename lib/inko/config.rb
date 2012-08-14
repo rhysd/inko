@@ -15,7 +15,8 @@ module Inko
           # To call off in Japanese, download voice data (Kyoko).
           voice_actor:        Alex
 
-
+          # Your screen name. ('@' is NOT needed.)
+          screen_name:        YourScreenName
 
           # Get app keys at https://dev.twitter.com/ and write them.
           consumer_key:       YourConsumerKey
@@ -33,6 +34,7 @@ module Inko
     # load configuration from file
     yaml = YAML.load(File.open(Config::ConfigFileName).read)
     VoiceActor     = yaml['voice_actor']
+    ScreenName     = yaml['screen_name']
     ConsumerKey    = yaml['consumer_key']
     ConsumerSecret = yaml['consumer_secret']
     OAuthToken     = yaml['oauth_token']
