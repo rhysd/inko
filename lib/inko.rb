@@ -24,6 +24,7 @@ module Inko extend self
                                                  .gsub(/！/,'!')
                                                  .gsub(/ｗ+/, ' 笑い ')
                                                  .gsub(/http:\/\/[^\s]+/, ' URL 略. ')
+                                                 .gsub(/#/, ' sharp ')
                                     )
     status
   end
