@@ -19,9 +19,11 @@ module Inko extend self
     status.user.screen_name = status.user.screen_name.gsub(/_/, ' ')
                                                      .gsub(/([a-zA-Z]+|[0-9]+)/){$1 + ' '}
                                                      .gsub(/@/,'@. ') 
-                                                     .gsub(/！/,'!')
-                                                     .gsub(/ｗ+/, ' 笑い ')
-    status.text = Shellwords::escape status.text.split(/\n/).join(" ")
+
+    status.text = Shellwords::escape( status.text.split(/\n/).join(" ")
+                                                 .gsub(/！/,'!')
+                                                 .gsub(/ｗ+/, ' 笑い ')
+                                    )
     status
   end
 
